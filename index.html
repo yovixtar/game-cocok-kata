@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pencocokan Kata</title>
+</head>
+<body>
+    <div id="start-screen">
+        <h1>Game Pencocokan Kata</h1>
+        <input type="text" id="user-name" placeholder="Masukkan Nama Anda" />
+        <button id="start-btn">Mulai Game</button>
+    </div>
+
+    <div class="container">
+        <header>
+            <button id="exit-manual" class="exit-btn">← Back</button><br />
+            <h2>Level <span id="level-number"></span></h2>
+            <div class="progress-indicators">
+                <span class="stage-indicator" id="stage-1">1</span>
+                <span class="stage-indicator" id="stage-2">2</span>
+                <span class="stage-indicator" id="stage-3">3</span>
+            </div>
+            <div class="timer">Waktu Tersisa: <span id="time-remaining">30</span> detik</div>
+        </header>
+
+        <main>
+            <h3 id="question"></h3>
+            <div class="button-container" id="button-container"></div>
+        </main>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-message"></p>
+            <button id="continue-btn" style="display:none;">Lanjut</button>
+            <button id="continue-next-lv-btn" style="display:none;">Lanjut Level Selanjutnya</button>
+            <button id="restart-btn" style="display:none;">Mulai Ulang</button>
+            <button id="exit-btn">Keluar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
