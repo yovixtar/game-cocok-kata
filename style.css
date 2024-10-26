@@ -1,3 +1,4 @@
+/* Body and General Settings */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -9,14 +10,17 @@ body {
     background: linear-gradient(135deg, #f0f4f8, #e0e7ef);
 }
 
-#start-screen {
-    text-align: center;
-}
-
 h1 {
     color: #333;
 }
 
+/* Start Screen */
+#start-screen {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Input Field */
 input[type="text"] {
     padding: 10px;
     margin: 20px;
@@ -25,6 +29,7 @@ input[type="text"] {
     width: 200px;
 }
 
+/* Buttons */
 button {
     background-color: #4a90e2;
     color: white;
@@ -39,6 +44,7 @@ button:hover {
     background-color: #357ab8;
 }
 
+/* Main Game Container */
 .container {
     display: none;
     width: 100%;
@@ -48,23 +54,53 @@ button:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     background-color: white;
     margin: 20px auto;
+    overflow-x: hidden;
 }
 
+/* Header and Title Styling */
 header {
     text-align: center;
 }
 
+/* Title Gradient */
+header h1 {
+    font-size: 24px;
+    background: linear-gradient(45deg, #f9b16e, #f68080);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+/* Progress Indicators with Connecting Line */
 .progress-indicators {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 10px 0;
+    position: relative;
+}
+
+.progress-indicators::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #ccc;
+    z-index: 0;
 }
 
 .stage-indicator {
-    padding: 5px 10px;
-    border-radius: 20px;
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 50%;
     background-color: #e0e7ef;
     color: #333;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
 
 .stage-indicator.active {
@@ -72,12 +108,19 @@ header {
     color: white;
 }
 
+.stage-indicator.completed {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Timer Styling */
 .timer {
     font-size: 20px;
     margin: 10px 0;
     color: #e67e22;
 }
 
+/* Main Content */
 main {
     margin-top: 20px;
 }
@@ -86,6 +129,7 @@ h3 {
     color: #333;
 }
 
+/* Button Container */
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -93,6 +137,7 @@ h3 {
     margin-top: 20px;
 }
 
+/* Choice Buttons */
 .choice {
     background-color: #f39c12;
     color: white;
@@ -116,6 +161,7 @@ h3 {
     transform: scale(1.05);
 }
 
+/* Modal Styling */
 .modal {
     display: none;
     position: fixed;
@@ -125,8 +171,7 @@ h3 {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     padding-top: 60px;
 }
 
@@ -136,7 +181,9 @@ h3 {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    max-width: 400px;
     text-align: center;
+    border-radius: 10px;
 }
 
 .close {
@@ -153,38 +200,39 @@ h3 {
     cursor: pointer;
 }
 
-button#continue-btn {
-    margin-top: 20px;
+/* Styled Buttons for Modal */
+button#continue-btn,
+button#continue-next-lv-btn,
+button#exit-btn,
+button#restart-btn {
+    margin-top: 15px;
     background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
 button#continue-next-lv-btn {
-    margin-top: 20px;
     background-color: #40c625;
 }
 
 button#exit-btn {
-    margin-top: 20px;
-    background-color: #cc1b1b97;
+    background-color: #cc1b1b;
 }
 
-.stage-indicator {
-    padding: 5px 10px;
-    border-radius: 20px;
-    background-color: #e0e7ef;
-    color: #333;
+button#restart-btn {
+    background-color: #e74c3c;
 }
 
-.stage-indicator.active {
-    background-color: #4caf50;
-    color: white;
+button:hover {
+    opacity: 0.9;
 }
 
-.stage-indicator.completed {
-    background-color: #3498db;
-    color: white;
-}
-
+/* Exit Button */
 .exit-btn {
     float: left;
     background-color: #f39c12;

@@ -138,9 +138,9 @@ function endStageOrGame(success) {
 
 function resetLevel() {
   clearInterval(timer);
-  timeRemaining = 60; 
-  currentCorrectAnswers = 0; 
-  currentWrongAnswers = 0; 
+  timeRemaining = 60;
+  currentCorrectAnswers = 0;
+  currentWrongAnswers = 0;
   resetStage();
   setLevelTargets();
   startTimer();
@@ -150,10 +150,12 @@ function resetLevel() {
 }
 
 function endLevel() {
-  showModal(`Level ${currentLevel} selesai! Pilih benar : ${currentCorrectAnswers}, Pilih salah : ${currentWrongAnswers}, Sisa Waktu : ${timeRemaining} detik, Selesai dalam ${60 - timeRemaining} detik. Lanjut ke Level berikutnya ?`);
+  showModal(`Level ${currentLevel} selesai! Lanjut ke Level berikutnya ?`);
+
+
   clearInterval(timer);
   if (currentLevel === 3) {
-    showModal(`Game selesai! Pilih benar : ${currentCorrectAnswers}, Pilih salah : ${currentWrongAnswers}, Sisa Waktu : ${timeRemaining} detik, Selesai dalam ${60 - timeRemaining} detik.`);
+    showModal(`Game selesai!`);
   }
 }
 
@@ -168,10 +170,26 @@ function showModal(message) {
     document.getElementById("restart-btn").style.display = "none";
 
   } else if (message.includes("Level berikutnya")) {
+    document.getElementById("modal-message").innerText = `
+        ${message}
+        
+        Pilih Benar: ${currentCorrectAnswers} | Pilih Salah: ${currentWrongAnswers}.
+        Waktu Tersisa: ${timeRemaining} detik.
+        Selesai dalam : ${60 - timeRemaining} detik.
+        `;
+
     document.getElementById("continue-btn").style.display = "none";
     document.getElementById("continue-next-lv-btn").style.display = "inline-block";
     document.getElementById("restart-btn").style.display = "none";
   } else {
+    document.getElementById("modal-message").innerText = `
+        ${message}
+        
+        Pilih Benar: ${currentCorrectAnswers} | Pilih Salah: ${currentWrongAnswers}.
+        Waktu Tersisa: ${timeRemaining} detik.
+        Selesai dalam : ${60 - timeRemaining} detik.
+        `;
+
     document.getElementById("continue-btn").style.display = "none";
     document.getElementById("continue-next-lv-btn").style.display = "none";
     document.getElementById("restart-btn").style.display = "inline-block";
